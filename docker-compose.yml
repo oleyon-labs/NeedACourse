@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  needacourse.sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
+  needacourse.api:
+    image: ${DOCKER_REGISTRY-}needacourseapi
+    build:
+      context: .
+      dockerfile: Systems/Api/NeedACourse.Api/Dockerfile
+
+  needacourse.identity:
+    image: ${DOCKER_REGISTRY-}needacourseidentity
+    build:
+      context: .
+      dockerfile: Systems/Identity/NeedACourse.Identity/Dockerfile
+

@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  needacourse.sqlserver:
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Passw0rd
+      #- MSSQL_PID=Express
+    ports:
+      - "21453:1433"
+    #networks:
+    #  - shared-dsrnetschool-net
+    volumes:      
+      - sqlserver-data:/var/opt/mssql
+
+  needacourse.api:
+    env_file:
+      - api.env
+    ports:
+      - "80:80"
+
+  needacourse.identity:
+    ports:
+      - "20055:80"
+volumes:
+  sqlserver-data:
