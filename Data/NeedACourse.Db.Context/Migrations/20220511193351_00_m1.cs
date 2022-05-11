@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NeedACourse.Db.Context.Migrations
 {
-    public partial class _01_m1 : Migration
+    public partial class _00_m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,9 +95,11 @@ namespace NeedACourse.Db.Context.Migrations
                 name: "Messages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
                     WasRead = table.Column<bool>(type: "bit", nullable: false),
                     FromCustomer = table.Column<bool>(type: "bit", nullable: false),
                     Uid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -106,8 +108,8 @@ namespace NeedACourse.Db.Context.Migrations
                 {
                     table.PrimaryKey("PK_Messages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Messages_orders_Id",
-                        column: x => x.Id,
+                        name: "FK_Messages_orders_OrderId",
+                        column: x => x.OrderId,
                         principalTable: "orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -154,6 +156,11 @@ namespace NeedACourse.Db.Context.Migrations
                 table: "customers",
                 column: "Uid",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_OrderId",
+                table: "Messages",
+                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_Uid",

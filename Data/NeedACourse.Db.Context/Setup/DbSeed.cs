@@ -47,49 +47,6 @@ public static class DbSeed
         };
         
         context.Orders.Add(order);
-        //var a1 = new Entities.Author()
-        //{
-        //    Name = "Mark Twen",
-        //    Detail = new Entities.AuthorDetail()
-        //    {
-        //        Country = "USA",
-        //        Family = "",
-        //    }
-        //};
-        //context.Authors.Add(a1);
-
-        //var a2 = new Entities.Author()
-        //{
-        //    Name = "Lev Tolstoy",
-        //    Detail = new Entities.AuthorDetail()
-        //    {
-        //        Country = "Russia",
-        //        Family = "",
-        //    }
-        //};
-        //context.Authors.Add(a2);
-
-        //var c1 = new Entities.Category()
-        //{
-        //    Title = "Classic"
-        //};
-        //context.Categories.Add(c1);
-
-        //context.Books.Add(new Entities.Book()
-        //{
-        //    Title = "Tom Soyer",
-        //    Description = "description description description description ",
-        //    Author = a1,
-        //    Categories = new List<Entities.Category>() { c1 },
-        //});
-
-        //context.Books.Add(new Entities.Book()
-        //{
-        //    Title = "War and peace",
-        //    Description = "description description description description ",
-        //    Author = a2,
-        //    Categories = new List<Entities.Category>() { c1 },
-        //});
 
         context.SaveChanges();
     }

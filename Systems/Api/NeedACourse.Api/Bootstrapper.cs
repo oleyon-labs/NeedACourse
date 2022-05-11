@@ -4,6 +4,7 @@ using NeedACourse.Services.AuthorService;
 using NeedACourse.Services.OrderService;
 using NeedACourse.Services.CustomerService;
 using NeedACourse.Settings;
+using NeedACourse.Services.MessageService;
 
 public static class Bootstrapper
 {
@@ -12,6 +13,7 @@ public static class Bootstrapper
         services
             .AddAuthorService()
             .AddCustomerService()
+            .AddMessageService()
             .AddOrderService();
     }
 }

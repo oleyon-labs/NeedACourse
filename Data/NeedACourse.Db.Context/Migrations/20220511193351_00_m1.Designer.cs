@@ -12,8 +12,8 @@ using NeedACourse.Db.Context;
 namespace NeedACourse.Db.Context.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20220510212813_01_m1")]
-    partial class _01_m1
+    [Migration("20220511193351_00_m1")]
+    partial class _00_m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,6 +136,8 @@ namespace NeedACourse.Db.Context.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasMaxLength(400)
@@ -143,6 +145,9 @@ namespace NeedACourse.Db.Context.Migrations
 
                     b.Property<bool>("FromCustomer")
                         .HasColumnType("bit");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -154,6 +159,8 @@ namespace NeedACourse.Db.Context.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("Uid")
                         .IsUnique();
@@ -203,7 +210,7 @@ namespace NeedACourse.Db.Context.Migrations
                 {
                     b.HasOne("NeedACourse.Db.Entities.Order", "Order")
                         .WithMany("Messages")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

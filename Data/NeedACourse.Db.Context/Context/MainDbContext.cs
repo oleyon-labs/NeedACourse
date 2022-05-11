@@ -46,6 +46,6 @@ public class MainDbContext : DbContext
 
         modelBuilder.Entity<Message>().ToTable("Messages");
         modelBuilder.Entity<Message>().Property(x => x.Content).HasMaxLength(400).IsRequired();
-        modelBuilder.Entity<Message>().HasOne(x=>x.Order).WithMany(x=>x.Messages).HasForeignKey(x=>x.Id).OnDelete(DeleteBehavior.Cascade);
+        modelBuilder.Entity<Message>().HasOne(x=>x.Order).WithMany(x=>x.Messages).HasForeignKey(x=>x.OrderId).OnDelete(DeleteBehavior.Cascade);
     }
 }

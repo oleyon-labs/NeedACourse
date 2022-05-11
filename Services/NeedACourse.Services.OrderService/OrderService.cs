@@ -25,10 +25,11 @@ public class OrderService : IOrderService
     public async Task CreateOrder(CreateOrderModel createOrderModel)
     {
         using var context = await contextFactory.CreateDbContextAsync();
-        var courseWork = new CourseWork() { Title = createOrderModel.CourseWorkTitle, Description = createOrderModel.CourseWorkDescription };
-        int courseworkid = context.CoursesWorks.AddAsync(courseWork).Result.Entity.Id;
-        var order = new Order() { AuthorId = createOrderModel.AuthorId, CustomerId = createOrderModel.CustomerId, Status = "New", CourseWorkId= courseworkid};
-        await context.AddAsync(order);
+        if (!context.Authors.Any(a => a.Id == createOrderModel.AuthorId) || !context.Authors.Any(c => c.Id == createOrderModel.CustomerId))
+            throw new Exception("Author or customer with id in the new order does not exist");
+        var courseWork = new CourseWork() { Title = createOrderModel.CourseWorkTitle, Description = createOrderModel.CourseWorkDescription, Data="" };
+        var order = new Order() { AuthorId = createOrderModel.AuthorId, CustomerId = createOrderModel.CustomerId, Status = "New", CourseWork = courseWork};
+        await context.Orders.AddAsync(order);
         await context.SaveChangesAsync();
     }
 

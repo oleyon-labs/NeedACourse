@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeedACourse.Services.OrderS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeedACourse.Settings", "Shared\NeedACourse.Settings\NeedACourse.Settings.csproj", "{AD724450-8271-4CDC-B0A9-E957E9B723C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeedACourse.Services.MessageService", "..\NeedACourse.Services.MessageService\NeedACourse.Services.MessageService.csproj", "{964C2488-2111-4EBC-8304-82B4CF169528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{AD724450-8271-4CDC-B0A9-E957E9B723C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD724450-8271-4CDC-B0A9-E957E9B723C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD724450-8271-4CDC-B0A9-E957E9B723C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964C2488-2111-4EBC-8304-82B4CF169528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964C2488-2111-4EBC-8304-82B4CF169528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964C2488-2111-4EBC-8304-82B4CF169528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964C2488-2111-4EBC-8304-82B4CF169528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{E43F2CE3-3B94-41DA-A18A-A7624DAC69A6} = {B3C43824-E04F-41BF-AC03-E244E9A52E08}
 		{D51071F2-3FD7-4DB6-988D-E6E859420BA4} = {B3C43824-E04F-41BF-AC03-E244E9A52E08}
 		{AD724450-8271-4CDC-B0A9-E957E9B723C8} = {333BFA44-820F-44AE-A7C6-682F258D2CC0}
+		{964C2488-2111-4EBC-8304-82B4CF169528} = {B3C43824-E04F-41BF-AC03-E244E9A52E08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {06716035-D769-4DA8-BC05-1919DFA705F8}

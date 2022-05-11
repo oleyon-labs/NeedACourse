@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\NeedACourse.Services.MessageService\NeedACourse.Services.MessageService.csproj" />
     <ProjectReference Include="..\..\..\Services\NeedACourse.Services.AuthorService\NeedACourse.Services.AuthorService.csproj" />
     <ProjectReference Include="..\..\..\Services\NeedACourse.Services.CustomerService\NeedACourse.Services.CustomerService.csproj" />
     <ProjectReference Include="..\..\..\Services\NeedACourse.Services.OrderService\NeedACourse.Services.OrderService.csproj" />
